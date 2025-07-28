@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmos Explorer - Interactive 3D Space Journey</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1>COSMOS EXPLORER</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p>Initializing 3D Space Environment...</p>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Cosmos Explorer</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#explore" class="nav-link">Explore Space</a></li>
+                <li><a href="#science" class="nav-link">Space Science</a></li>
+                <li><a href="#missions" class="nav-link">Mission Builder</a></li>
+                <li><a href="#timeline" class="nav-link">Cosmic Timeline</a></li>
+                <li><a href="#multiverse" class="nav-link">Multiverse</a></li>
+                <li><a href="#seti" class="nav-link">SETI Game</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero-container">
+                <div id="space-canvas"></div>
+                <div class="hero-content">
+                    <h1>Explore the Universe</h1>
+                    <p>Experience the wonders of space in real-time 3D. No account needed - just pure cosmic exploration.</p>
+                    <div class="hero-buttons">
+                        <a href="#explore" class="btn btn-primary">Start Exploring</a>
+                        <a href="#science" class="btn btn-secondary">Learn Science</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Space Section -->
+        <section id="explore" class="section">
+            <div class="container">
+                <h2>Interactive Space Explorer</h2>
+                <div class="explorer-controls">
+                    <div class="control-group">
+                        <label>Object Type:</label>
+                        <select id="object-type">
+                            <option value="planets">Planets</option>
+                            <option value="stars">Stars</option>
+                            <option value="blackholes">Black Holes</option>
+                            <option value="galaxies">Galaxies</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button id="zoom-in" class="btn-icon"><i class="fas fa-search-plus"></i></button>
+                        <button id="zoom-out" class="btn-icon"><i class="fas fa-search-minus"></i></button>
+                        <button id="reset-view" class="btn-icon"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+                <div id="space-explorer"></div>
+            </div>
+        </section>
+
+        <!-- Space Science Section -->
+        <section id="science" class="section">
+            <div class="container">
+                <h2>Learn Space Science</h2>
+                <div class="science-content">
+                    <div class="science-topic" data-topic="relativity">
+                        <h3>Relativity</h3>
+                        <div class="topic-content">
+                            <div class="animation-container">
+                                <canvas id="relativity-animation"></canvas>
+                            </div>
+                            <p>Discover how space and time are interconnected through Einstein's theory of relativity.</p>
+                        </div>
+                    </div>
+                    <div class="science-topic" data-topic="gravity">
+                        <h3>Gravity</h3>
+                        <div class="topic-content">
+                            <div class="animation-container">
+                                <canvas id="gravity-animation"></canvas>
+                            </div>
+                            <p>Understand how gravity shapes the universe from planets to galaxies.</p>
+                        </div>
+                    </div>
+                    <div class="science-topic" data-topic="time-dilation">
+                        <h3>Time Dilation</h3>
+                        <div class="topic-content">
+                            <div class="animation-container">
+                                <canvas id="time-dilation-animation"></canvas>
+                            </div>
+                            <p>Experience how time moves differently in strong gravitational fields or at high speeds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zero Gravity Lab -->
+        <section id="zero-gravity" class="section">
+            <div class="container">
+                <h2>Zero Gravity Physics Lab</h2>
+                <div class="lab-container">
+                    <div id="physics-simulator"></div>
+                    <div class="lab-controls">
+                        <div class="control-group">
+                            <label>Object:</label>
+                            <select id="object-selector">
+                                <option value="ball">Ball</option>
+                                <option value="cube">Cube</option>
+                                <option value="liquid">Liquid</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Force:</label>
+                            <input type="range" id="force-slider" min="0" max="100" value="50">
+                        </div>
+                        <button id="apply-force" class="btn">Apply Force</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Builder -->
+        <section id="missions" class="section">
+            <div class="container">
+                <h2>Build Your Space Mission</h2>
+                <div class="mission-builder">
+                    <div class="mission-controls">
+                        <div class="control-group">
+                            <label>Destination:</label>
+                            <select id="destination">
+                                <option value="mars">Mars</option>
+                                <option value="europa">Europa</option>
+                                <option value="titan">Titan</option>
+                                <option value="proxima">Proxima Centauri</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Rocket Type:</label>
+                            <select id="rocket">
+                                <option value="falcon">Falcon Heavy</option>
+                                <option value="starship">Starship</option>
+                                <option value="ion">Ion Drive</option>
+                                <option value="nuclear">Nuclear Thermal</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Fuel Type:</label>
+                            <select id="fuel">
+                                <option value="rp1">RP-1/LOX</option>
+                                <option value="methane">Methane/LOX</option>
+                                <option value="hydrogen">Liquid Hydrogen</option>
+                                <option value="xenon">Xenon</option>
+                            </select>
+                        </div>
+                        <button id="simulate-mission" class="btn btn-primary">Simulate Mission</button>
+                    </div>
+                    <div class="mission-results">
+                        <h3>Mission Results</h3>
+                        <div id="mission-output">
+                            <p>Select your mission parameters and click "Simulate Mission"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cosmic Timeline -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <h2>Cosmic Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-controls">
+                        <button id="timeline-play" class="btn-icon"><i class="fas fa-play"></i></button>
+                        <button id="timeline-pause" class="btn-icon"><i class="fas fa-pause"></i></button>
+                        <input type="range" id="timeline-slider" min="0" max="100" value="0">
+                    </div>
+                    <div id="timeline-viewer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multiverse Explorer -->
+        <section id="multiverse" class="section">
+            <div class="container">
+                <h2>Multiverse Theories</h2>
+                <div class="multiverse-container">
+                    <div class="theory-selector">
+                        <button class="theory-btn active" data-theory="wormholes">Wormholes</button>
+                        <button class="theory-btn" data-theory="parallel">Parallel Universes</button>
+                        <button class="theory-btn" data-theory="bubble">Bubble Universes</button>
+                        <button class="theory-btn" data-theory="time">Time Travel</button>
+                    </div>
+                    <div id="multiverse-viewer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETI Game -->
+        <section id="seti" class="section">
+            <div class="container">
+                <h2>SETI Signal Decoder</h2>
+                <div class="seti-container">
+                    <div class="signal-display">
+                        <canvas id="signal-canvas"></canvas>
+                    </div>
+                    <div class="decoder-controls">
+                        <div class="frequency-control">
+                            <label>Frequency:</label>
+                            <input type="range" id="frequency-slider" min="0" max="100" value="50">
+                        </div>
+                        <div class="decoder-output">
+                            <textarea id="decoder-output" readonly placeholder="Decoded signal will appear here..."></textarea>
+                        </div>
+                        <button id="scan-signal" class="btn">Scan Signal</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cosmos Explorer</h3>
+                    <p>Free public access to space exploration and education</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li>NASA APIs</li>
+                        <li>ESA Data</li>
+                        <li>Minor Planet Center</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Space Science</a></li>
+                        <li><a href="#">Mission Archives</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cosmos Explorer. All features are publicly accessible with no account required.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.144.0/three.min.js"></script>
+    <script src="main.js"></script>
+    <script src="space-explorer.js"></script>
+    <script src="science-animations.js"></script>
+    <script src="physics-lab.js"></script>
+    <script src="mission-builder.js"></script>
+    <script src="timeline.js"></script>
+    <script src="multiverse.js"></script>
+    <script src="seti-game.js"></script>
+</body>
+</html>
